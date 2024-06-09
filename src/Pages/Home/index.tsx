@@ -1,7 +1,7 @@
-import './App.scss'
-import TripList from './TripList'
+import TripList from '../../Components/TripList'
+import './style.scss'
 
-function App() {
+function Home() {
   return (
     <>
       <h1>Wander like Desna wanted. </h1>
@@ -10,4 +10,4 @@ function App() {
   )
 }
 
-export default App
+export default Home

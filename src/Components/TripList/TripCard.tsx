@@ -12,6 +12,8 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useNavigate } from 'react-router-dom';
+import { CardActionArea } from '@mui/material';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -27,53 +29,56 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+interface Trip {
+  id: string;
+  title: string;
+  startDate: { formatted: string };
+  endDate: { formatted: string };
+}
+
+interface TripDetailsCardProps {
+  trip: Trip;
+}
+
+export default function TripDetailsCard(detailsProps: TripDetailsCardProps) {
+  const { trip } = detailsProps;
+  console.log(trip);
   const [expanded, setExpanded] = React.useState(false);
+  const navigate = useNavigate();
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const title = "Trip to the moon"
-  const data = {
-    logoLetter: title.charAt(0),
-    trip: {
-      title,
-      startDate: {
-        raw: "2022-10-10",
-        formatted: "10th October 2022"
-      },
-      endDate: {
-        raw: "2022-10-20",
-        formatted: "20th October 2022"
-      },
-    }
-  }
+  const logoLetter = trip.title ? trip.title.charAt(0) : 'D';
+  if (!trip) return <>Loading...</>;
   return (
     <Card sx={{ width: '100%' }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="trip">
-            {data.logoLetter}
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={data.trip.title}
-        subheader={`${data.trip.startDate.formatted} thru ${data.trip.endDate.formatted}`}
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://placekitten.com/200/300"
-        alt={data.trip.title}
-      />
+      <CardActionArea onClick={() => {
+        navigate(`/trip/${trip.id}`)
+      }}>
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: red[500] }} aria-label="trip">
+              {logoLetter}
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={trip.title}
+          subheader={`${trip.startDate.formatted} thru ${trip.endDate.formatted}`}
+        />
+        <CardMedia
+          component="img"
+          height="194"
+          image="https://placekitten.com/200/300"
+          alt={trip.title}
+        />
+      </CardActionArea>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          View Details
-        </IconButton>
         <IconButton aria-label="share">
           Share
         </IconButton>
@@ -105,6 +110,7 @@ export default function RecipeReviewCard() {
           </Typography>
         </CardContent>
       </Collapse>
+
     </Card>
   );
 }

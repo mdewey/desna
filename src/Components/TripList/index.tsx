@@ -1,21 +1,27 @@
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import TripCard from "./TripCard"
 import "./style.scss"
+import { halloween2024 } from "../../data/trips";
 
 type TripListProps = {
   title: string
 }
 
-function index({ title = "" }: TripListProps) {
+function index({ title = "1" }: TripListProps) {
+
+  const trips = [halloween2024]
+  console.log(trips)
   return (
     <div className="trip-list">
       <h2>
-        <TravelExploreIcon />{' '}{title || "Trip List"}
+        <TravelExploreIcon />{' '}{title || "Trip List 2"}
       </h2>
       <ul>
-        <li><TripCard /></li>
-        <li><TripCard /></li>
-        <li><TripCard /></li>
+        {trips.map((trip, index) => (
+          <li key={index}>
+            <TripCard trip={trip} />
+          </li>
+        ))}
       </ul>
     </div>
   )

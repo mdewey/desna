@@ -14,6 +14,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
+import { TripInterface } from '../../data/trips';
+import { format } from 'date-fns';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -29,15 +31,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-interface Trip {
-  id: string;
-  title: string;
-  startDate: { formatted: string };
-  endDate: { formatted: string };
-}
 
 interface TripDetailsCardProps {
-  trip: Trip;
+  trip: TripInterface;
 }
 
 export default function TripDetailsCard(detailsProps: TripDetailsCardProps) {
@@ -69,8 +65,9 @@ export default function TripDetailsCard(detailsProps: TripDetailsCardProps) {
             </IconButton>
           }
           title={trip.title}
-          subheader={`${trip.startDate.formatted} thru ${trip.endDate.formatted}`}
+          subheader={`${format(trip.startDate, "MMM do")} thru ${format(trip.endDate, "MMM do")}`}
         />
+
         <CardMedia
           component="img"
           height="194"

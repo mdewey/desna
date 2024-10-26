@@ -2,26 +2,40 @@
 export interface TripInterface {
   id: string;
   title: string;
-  startDate: {
-    raw: string;
-    formatted: string;
+  startDate: Date;
+  endDate: Date;
+  hotel: {
+    name: string;
+    address: string;
+    arrivalDate: Date;
+    departureDate: Date;
   };
-  endDate: {
-    raw: string;
-    formatted: string;
+  gmailLink: string;
+  transportation: {
+    type: string;
+    details: string;
+    leavingTime: Date | string;
+    backHomeTime: Date | string;
   };
 }
 
 const halloween2024 = {
   id: "2024-halloween",
   title: 'Halloween Trip to Indianapolis for PPPP ',
-  startDate: {
-    raw: "2022-10-10",
-    formatted: "10th October 2022"
+  startDate: new Date('2024-10-30'),
+  endDate: new Date('2024-11-01'),
+  gmailLink:"https://mail.google.com/mail/u/0/#label/Travel%2F2024+halloween",
+  hotel: {
+    name: "Hotel Broad Ripple",
+    address: "6520 Westfield Blvd, Indianapolis, IN 46220",
+    arrivalDate: new Date('2024-10-30'),
+    departureDate: new Date('2024-11-01'),
   },
-  endDate: {
-    raw: "2022-10-20",
-    formatted: "20th October 2022"
+  transportation: {
+    type: "driving",
+    details: "Driving from Home",
+    leavingTime: "after lunch",
+    backHomeTime: "evening",
   },
 } as TripInterface; 
 

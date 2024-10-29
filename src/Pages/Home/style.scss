@@ -11,3 +11,25 @@ ul{
 }
 
 
+.activity-card{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .links{
+    text-decoration: none;
+    color: #007bff;
+    display: flex;
+    flex-direction: column;
+    a{
+      &:hover{
+        text-decoration: underline;
+      }
+      margin: 0.5rem 0;
+      min-height: 3rem;
+    }
+  }
+}

@@ -46,9 +46,55 @@ export default function TripDetails() {
         <p>Check-out: {format(trip.hotel.departureDate, "MMM do")}</p>
       </section>
 
-      {/* hotel */}
-      {/*transportation  */}
       {/* things of interests */}
+      <section className="things-of-interest">
+        <h2>Climbing gyms</h2>
+        <ul>
+          {trip.climbingGyms?.map((gym, index) => (
+            <li key={index} className="activity-card">
+              <div>
+                <h3>{gym.title}</h3>
+                <p>{gym.description}</p>
+              </div>
+              <div className="links">
+                <a href={gym.website} target="_blank" rel="noopener noreferrer">Website</a>
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">Directions</a>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <h2>Restaurants</h2>
+        <ul>
+          {trip.restaurants?.map((restaurant, index) => (
+            <li key={index} className="activity-card">
+              <div>
+                <h3>{restaurant.title}</h3>
+                <p>{restaurant.description}</p>
+              </div>
+              <div className="links">
+                <a href={restaurant.website} target="_blank" rel="noopener noreferrer">Website</a>
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.address)}`} target="_blank" rel="noopener noreferrer">Directions</a>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <h2>Cool places</h2>
+        <ul>
+          {trip.thingsToDo?.map((place, index) => (
+            <li key={index} className="activity-card">
+              <div>
+                <h3>{place.title}</h3>
+                <p>{place.description}</p>
+              </div>
+              <div className="links">
+                <a href={place.website} target="_blank" rel="noopener noreferrer">Website</a>
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`} target="_blank" rel="noopener noreferrer">Directions</a>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <button onClick={() => navigate('/')}>Go Home</button>
     </>

@@ -39,8 +39,8 @@ const halloween2024 = {
   hotel: {
     name: "Hotel Broad Ripple",
     address: "6520 Westfield Blvd, Indianapolis, IN 46220",
-    arrivalDate: new Date('2024-10-30'),
-    departureDate: new Date('2024-11-01'),
+    arrivalDate: new Date('10-30-2024'),
+    departureDate: new Date('11-01-2024'),
   },
   transportation: {
     type: "driving",

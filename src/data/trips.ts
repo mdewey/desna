@@ -17,17 +17,43 @@ export interface TripInterface {
     address: string;
     arrivalDate: Date;
     departureDate: Date;
-  };
+    reservationNumber?: string,
+    gmailLink?: string, 
+  },
+  tickets: {
+    type: string;
+    details: string;
+    reservationNumber: string;
+    email: string;
+  } | null, 
   gmailLink: string;
   transportation: {
     type: string;
     details: string;
     leavingTime: Date | string;
     backHomeTime: Date | string;
-  };
+    flights:{
+      going: {
+        airline: string;
+        flightNumber: string;
+        departureAirport: string;
+        departureTime: Date;
+        arrivalAirport: string;
+        arrivalTime: Date;
+      } | null,
+      returning: {
+        airline: string;
+        flightNumber: string;
+        departureAirport: string;
+        departureTime: Date;
+        arrivalAirport: string;
+        arrivalTime: Date;
+       } | null,
+    }
+  },
   thingsToDo?: PlaceOfInterest[];
   restaurants?: PlaceOfInterest[];
-  climbingGyms?: PlaceOfInterest[];
+  climbingGyms?: PlaceOfInterest[] | null;
 }
 
 const halloween2024 = {
@@ -107,7 +133,44 @@ const halloween2024 = {
   ],
 } as TripInterface; 
 
+
+const disneyWorld2025 = {
+  id: "2025-disney",
+  title: 'Family Disney World Trip',
+  startDate: new Date('2025-03-28'),
+  endDate: new Date('2025-04-02'),
+  gmailLink: "https://mail.google.com/mail/u/0/#label/2025+disney+trip",
+  hotel: {
+    name: "Disney's Pop Century Resort",
+    address: "1050 Century Dr, Orlando, FL 32830",
+    arrivalDate: new Date('03-28-2025'),
+    departureDate: new Date('04-02-2025'),
+    reservationNumber: "36524803",
+    gmailLink: "https://mail.google.com/mail/u/0/#label/2025+disney+trip/FMfcgzQZSXwbnmBrRgwPGsskPMbJVLKj"
+  },
+  tickets: {
+    type: "Park Tickets",
+    details: "4 day park hopper",
+    reservationNumber: "FZGJ87101010",
+    email: "https://mail.google.com/mail/u/0/#label/2025+disney+trip/FMfcgzQZSXwbntwJnCDBdZQmlRftxVbc"
+  },
+  transportation: {
+    type: "flying",
+    details: "Flying from Pittsburgh",
+    leavingTime: "morning",
+    backHomeTime: "evening",
+    flights: {
+      going: null,
+      returning: null
+    },
+  },
+  thingsToDo: [],
+  restaurants: [],
+  climbingGyms:  null,
+} as TripInterface;
+
 export   {
+  disneyWorld2025,
   halloween2024
 };  // Exporting the trip object
 

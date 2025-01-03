@@ -41,6 +41,10 @@ export default function TripDetails() {
             rel="noopener noreferrer">
             Directions
           </a>
+          {/* If on an andriod, deep link to the gmail app */}
+          <a href="intent://#Intent;scheme=googlegmail;package=com.google.android.gm;end">Open Gmail (Android)</a>
+
+
         </p>
         {/* reservation number */}
         {trip.hotel.reservationNumber && <p>Reservation Number: {trip.hotel.reservationNumber}</p>}

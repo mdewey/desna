@@ -21,6 +21,7 @@ export default function TripDetails() {
           rel="noopener noreferrer">
           Gmail Folder
         </a>
+        {trip.emailLabel && <p>Email label:{trip.emailLabel}</p>}
       </section>
       <section className="transportation">
         <h2>Transportation</h2>

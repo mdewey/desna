@@ -12,6 +12,7 @@ export interface TripInterface {
   title: string;
   startDate: Date;
   endDate: Date;
+  emailLabel?: string | null;
   hotel: {
     name: string;
     address: string;
@@ -140,6 +141,7 @@ const disneyWorld2025 = {
   startDate: new Date('2025-03-28'),
   endDate: new Date('2025-04-02'),
   gmailLink: "https://mail.google.com/mail/u/0/#label/2025+disney+trip",
+  emailLabel:'2025 disney trip',
   hotel: {
     name: "Disney's Pop Century Resort",
     address: "1050 Century Dr, Orlando, FL 32830",

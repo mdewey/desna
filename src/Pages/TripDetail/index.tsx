@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-import { disneyWorld2025 } from "../../data/trips";
+import { redRocks2025 } from "../../data/trips";
 
 import { format } from 'date-fns';
 
 
 export default function TripDetails() {
   const navigate = useNavigate();
-  const trip = disneyWorld2025; // Get the trip details from the data
+  const trip = redRocks2025; // Get the trip details from the data
 
   return (
     <>

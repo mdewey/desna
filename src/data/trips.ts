@@ -134,6 +134,61 @@ const halloween2024 = {
   ],
 } as TripInterface; 
 
+const redRocks2025 = {
+  id: "2025-red-rocks",
+  title: 'Vulfpeck at Red Rocks',
+  startDate: new Date('2025-07-02'),
+  endDate: new Date('2025-07-06'),
+  gmailLink: "https://mail.google.com/mail/u/0/#label/Travel%2F2025+Red+Rocks",
+  emailLabel: '2025 red rocks',
+  hotel: {
+    name: "Limelight",
+    address: "1600 WEWATTA STREET DENVER, CO 80202",
+    arrivalDate: new Date('2025-07-02'),
+    departureDate: new Date('2025-07-06'),
+    reservationNumber: "42199298-1",
+  },
+  tickets: {
+    type: "Concert Tickets",
+    details: "Vulfpeck at Red Rocks",
+    reservationNumber: "22444353",
+    email: "https://mail.google.com/mail/u/0/#label/Travel%2F2025+Red+Rocks/FMfcgzQZSZGfKchLBpWJwrpdzFLNMqCT"
+  },
+  transportation: {
+    type: "flying",
+    details: "Southwest from Pittsburgh",
+    leavingTime: "10:20am",
+    backHomeTime: "5:15pm",
+    flights: {
+      going: {
+        airline: "Southwest",
+        flightNumber: "0522",
+        departureAirport: "PIT",
+        departureTime: new Date('2025-07-02T10:20:00'),
+        arrivalAirport: "DEN",
+        arrivalTime: new Date('2025-07-02T11:45:00'),
+      },
+      returning: {
+        airline: "Southwest",
+        flightNumber: "2762",
+        departureAirport: "DEN",
+        departureTime: new Date('2025-07-06T12:20:00'),
+        arrivalAirport: "PIT",
+        arrivalTime: new Date('2025-07-06T17:15:00'),
+      }
+    }
+  },
+  thingsToDo: [
+    {
+      title: "Dinosaur Ridge",
+      description: "DInosaurs",
+      address: "",
+      website: "https://dinoridge.org/"
+    }
+  ],
+  restaurants: [],
+  climbingGyms: null,
+} as TripInterface;
 
 const disneyWorld2025 = {
   id: "2025-disney",
@@ -173,6 +228,7 @@ const disneyWorld2025 = {
 
 export   {
   disneyWorld2025,
-  halloween2024
+  halloween2024,
+  redRocks2025
 };  // Exporting the trip object
 

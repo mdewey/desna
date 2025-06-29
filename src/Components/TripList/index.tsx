@@ -1,7 +1,7 @@
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import TripCard from "./TripCard"
 import "./style.scss"
-import { disneyWorld2025, halloween2024, TripInterface } from "../../data/trips";
+import { redRocks2025, TripInterface } from "../../data/trips";
 
 type TripListProps = {
   title: string
@@ -9,7 +9,7 @@ type TripListProps = {
 
 function index({ title = "1" }: TripListProps) {
 
-  const trips = [disneyWorld2025, halloween2024] as TripInterface[];
+  const trips = [redRocks2025] as TripInterface[];
   return (
     <div className="trip-list">
       <h2>
